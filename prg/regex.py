@@ -10,13 +10,14 @@ if obj:
     print(obj.group())
 else:
     print('Not found')
-
+print('--------------')
 ########### findall() #############
 
 lst = re.findall(r'm\w\w',str)
 print(lst)
 for i in lst : print(i)
 
+print('--------------')
 ########## match() ############
 
 obj = re.match(r'm\w\w',str)
@@ -25,3 +26,4 @@ if obj:
 else:
     print('Not found')
 
+print('--------------')

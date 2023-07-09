@@ -4,7 +4,7 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 import configparser
 from configparser import ConfigParser
-conf=ConfigParser()
+conf=ConfigParser()vzsaq
 conf.read(r"E:\\big-data\\files\\config.txt")
 host=conf.get("cred","host")
 user=conf.get("cred","user")

@@ -23,6 +23,10 @@ res=df.withColumn("dt", to_date(df.dt,"d-M-yyyy"))\
     .withColumn("dom", dayofmonth(col("dt")))\
     .withColumn("doy", dayofyear(col("dt")))\
     .withColumn("monbet", months_between(current_date(),col('dt')))\
+    .withColumn("dttrunc", date_trunc("year", col("dt")))\
+    .withColumn("montruc", date_trunc("mon", col("dt")))\
+    .withColumn("weekofyr", weekofyear(col("dt")))
+
 
 
 

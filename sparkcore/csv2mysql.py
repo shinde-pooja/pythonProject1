@@ -27,4 +27,3 @@ res=df.toDF(*cols)
 res.show()
 res.write.format("jdbc").option("url",host).option("user",user).option("password",pwd)\
     .option("dbtable","1000cleanRecord").option("driver","com.mysql.jdbc.Driver").save()
-

@@ -31,6 +31,7 @@ uf = udf(func)
 
 
 spark.udf.register("offer", uf) # user define function convert to sql function
+
 df.createOrReplaceTempView("tab")
 
 ndf=spark.sql("select * , offer(state) todaysoffer from tab" )

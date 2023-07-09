@@ -14,10 +14,12 @@ ndf=df.groupBy(df.state).agg(count("*").alias("cnt"), collect_list(df.first_name
 
 ndf=df.groupBy(df.state).agg(count(df.city).alias("cnt"), collect_set(df.city).alias("city_name")).orderBy(col("cnt").desc())
 
+#  collect_list and collect_set are work as same but list can contain duplicate values but set does not
 
 ndf.printSchema()
-ndf.show(truncate=False)  ,,,
-
+ndf.show(truncate=False)
+print('---------------------------')
+ndf.schema
 
 
 #withColumn used to add new column (if column not exists) or update (if already column exists)

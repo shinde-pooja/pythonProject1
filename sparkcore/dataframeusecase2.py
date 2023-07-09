@@ -14,9 +14,10 @@ df=spark.read.format("csv").option("header", "true").option("inferschema","true"
 
 
 # data processing: programming friendly
+# select * from tab where age> 90
 #res=df.where(col("age")>90)
 
-# select * from table where marital != "marrried"
+# select * from table where marital != "marrried" and age > 60
 #res= df.where((col("age")>60) & (col("marital")!="married"))
 
 # select age, mariatl, balance from table where age > 60 and marital != "married"
@@ -39,7 +40,7 @@ df.createOrReplaceTempView("tab")
 #res = df.groupBy(col("marital")).agg(sum(col("balance")).alias("sumbal")).orderBy("sumbal")
 
 #res=df.groupBy(col("marital")).count()
-
+# select marital count(*), cnt , sum(balance) sum from tab where balance >= avg(balance)
 res=df.groupBy(col('marital')).agg(count("*").alias("cnt"),sum(col("balance").alias("sum")))#.where(col("balance")>=avg(col("balance")))
 
 

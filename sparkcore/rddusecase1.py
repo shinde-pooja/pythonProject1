@@ -16,7 +16,9 @@ res=aslrdd.map(lambda x:x.split(",")).filter(lambda x:'hyd' in x[2])
 res1=aslrdd.map(lambda x:x.split(","))
 #filter by default apply a logic/filter on top of entire line
 #filteralmost in sql ur using where condition to filter result similarly ur using filter function
-
+for i in aslrdd.collect():
+    print(i)
+#-------------------
 for i in res.collect():
     print(i)
 

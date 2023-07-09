@@ -36,3 +36,8 @@ qdf=spark.sql(qry)
 
 qdf.printSchema()
 qdf.show()
+
+# 121@airtel.com
+
+
+

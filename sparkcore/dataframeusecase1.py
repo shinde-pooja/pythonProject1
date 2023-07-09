@@ -12,6 +12,9 @@ sc = spark.sparkContext
 
 data="E:\\big-data\\drivers-20220726T155648Z-001\\donations1.csv"
 rdd=spark.sparkContext.textFile(data)
+# or
+# rdd= sc.textFile(data)
+
 
 skip=rdd.first()
 odata=rdd.filter(lambda x: x!=skip)

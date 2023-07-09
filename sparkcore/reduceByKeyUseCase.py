@@ -12,7 +12,7 @@ pro = drdd.filter(lambda x: "dt" not in x).map(lambda x: x.split(",")).map(lambd
 for i in pro.collect():
     print(i)
 
-print("---------------------0")
+print("-----------------------")
 pro1 = drdd.filter(lambda x: "dt" not in x).map(lambda x: x.split(",")).map(lambda x: (x[0], int(x[2]))).reduceByKey(lambda x,y : x+y)
 
 for i in pro1.collect():

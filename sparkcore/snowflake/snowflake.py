@@ -1,10 +1,13 @@
 from pyspark.sql import *
 from pyspark.sql.functions import *
 
-spark = SparkSession.builder.master("local[2]").appName("test").config("spark.jars","E:\\bigdata\\spark-3.1.2-bin-hadoop3.2\\jars\\spark-snowflake_2.12-2.11.0-spark_3.1").getOrCreate()
+spark = SparkSession.builder.master("local[2]").appName("test")\
+  .config("spark.jars","E:\\bigdata\\spark-3.1.2-bin-hadoop3.2\\jars\\spark-snowflake_2.12-2.11.0-spark_3.1")\
+  .getOrCreate()
 
 sc=spark.sparkContext
-sc._jvm.net.snowflake.spark.snowflake.SnowflakeConnectorUtils.disablePushdownSession(sc._jvm.org.apache.spark.sql.SparkSession.builder().getOrCreate())
+sc._jvm.net.snowflake.spark.snowflake.SnowflakeConnectorUtils\
+  .disablePushdownSession(sc._jvm.org.apache.spark.sql.SparkSession.builder().getOrCreate())
 
 # You might need to set these
 sc._jsc.hadoopConfiguration().set("fs.s3n.awsAccessKeyId", "")
